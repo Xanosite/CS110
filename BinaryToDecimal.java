@@ -1,3 +1,7 @@
+//  Author: Blake Hershberger
+//  Date: 20210107
+//  File: BinaryToDecimal.java
+
 class BinaryToDecimal {
   public static void main(String[] args) {
     // static binary storage for now
