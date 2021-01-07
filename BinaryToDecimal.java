@@ -1,9 +1,11 @@
 class BinaryToDecimal {
   public static void main(String[] args) {
+    // static binary storage for now
     char[] binaryArr = {1,0,1,0,1,1,0,1,0,1,0,1,0,0,1};
     System.out.printf("Binary Input: %s%nInteger Output: %d%n", binaryArrToString(binaryArr), binaryArrToDecimal(binaryArr));
   }
   private static String binaryArrToString(char[] binaryArr) {
+    // converts binary char array (1s and 0s stored in char not as char) and returns string of array
     int i;
     String binaryStr = "";
     for (i = 0; i < binaryArr.length; i++) {
@@ -16,8 +18,11 @@ class BinaryToDecimal {
     return binaryStr;
   }
   private static int binaryArrToDecimal(char[] binaryArr) {
+    // returns decimal value for given char array of 1s and 0s
     int resultInt = 0, i;
     for (i = 0; i < binaryArr.length; i++) {
+      // inverts loop order to check from right to left, adds int to return value
+      //  if the location contains a 1
       if (binaryArr[(binaryArr.length - 1) - i] == 1) {
         resultInt += power(2, i);
       }
