@@ -6,7 +6,7 @@ class BinaryToDecimal {
   public static void main(String[] args) {
     // static binary storage for now
     char[] binaryArr = {1,0,1,0,1,1,0,1,0,1,0,1,0,0,1};
-    System.out.printf("Binary Input: %s%nInteger Output: %d%n", binaryArrToString(binaryArr), binaryArrToDecimal(binaryArr));
+    System.out.printf("Binary Input: %s\nInteger Output: %d%n", binaryArrToString(binaryArr), binaryArrToDecimal(binaryArr));
   }
   private static String binaryArrToString(char[] binaryArr) {
     // converts binary char array (1s and 0s stored in char not as char) and returns string of array
