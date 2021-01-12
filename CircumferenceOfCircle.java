@@ -8,6 +8,7 @@ get number from userKeyboard
 number * π * 2
 return number
 */
+
 import java.util.Scanner;
 
 public class CircumferenceOfCircle {
