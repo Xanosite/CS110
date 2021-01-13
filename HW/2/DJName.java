@@ -136,7 +136,7 @@ class DJName {
     // return desired string
     return input.substring(start, stop);
   }
-  // handles entries with length of 1
+  // handles entries with length of 1, makes uppercase if firstName, adds decimals and Spaces if both are single letter
   private static String InitialsHandler (String input, Boolean decimal, Boolean firstName) {
     String ret = input;
     if (decimal) {
