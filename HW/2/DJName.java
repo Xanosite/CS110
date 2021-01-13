@@ -1,5 +1,5 @@
 // Author: Blake Hershberger
-// Date: 12-JAN-2021
+// Date: 13-JAN-2021
 // Takes two string inputs, returns 1/2 eahc + JayJay
 
 // Pseudo
