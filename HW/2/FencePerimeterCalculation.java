@@ -23,25 +23,43 @@ public class FencePerimeterCalculation {
   // only need main for this one
   public static void main(String[] args) {
     // declare && init scanner
-    Scanner inputScanner = new Scanner(System.in);
+    Scanner consoleInputScanner = new Scanner(System.in);
     // declare var
     Double rad, len, wid;
     // ask
     System.out.printf("What is the radius of the circle?: ");
     // read
-    rad = inputScanner.nextDouble();
+    rad = GetDoubleInput(consoleInputScanner);
     // ask
     System.out.printf("What is the length of the rectangle?: ");
     // read
-    len = inputScanner.nextDouble();
+    len = GetDoubleInput(consoleInputScanner);
     // ask
     System.out.printf("What is the width of the rectangle?: ");
     // read
-    wid = inputScanner.nextDouble();
+    wid = GetDoubleInput(consoleInputScanner);
     // tell
     System.out.printf("The circle circumference is %f\n", 2 * Math.PI * rad);
     System.out.printf("The perimeter of the rectangle is %f\n", len * wid);
     // clase scanner (memory)
-    inputScanner.close();
+    consoleInputScanner.close();
+  }
+
+  // gets a double from the console
+  private static Double GetDoubleInput(Scanner inputScanner) {
+    //declare result var
+    Double input = 0.0;
+    Boolean inputFlag = false;
+    while (!inputFlag) {
+      if (inputScanner.hasNextDouble()) {
+        input = inputScanner.nextDouble();
+        inputFlag = true;
+      } else {
+        System.out.printf("Please try again, in integer or decimal value is needed to continue:");
+      }
+      // move to next line
+      inputScanner.nextLine();
+    }
+    return input;
   }
 }

@@ -1,6 +1,6 @@
 // Author: Blake Hershberger
 // Date: 13-JAN-2021
-// Takes two string inputs, returns 1/2 eahc + JayJay
+// Takes two string inputs, returns 1/2 each + JayJay
 
 /* Psuedocode
 import scanner
@@ -35,6 +35,7 @@ class
 
 // import area
 import java.util.Scanner;
+
 // main class & funct
 class DJName {
   public static void main(String[] args) {
@@ -56,6 +57,7 @@ class DJName {
     // print result
     System.out.printf("Your DJ name is: %sJayJay", outputNameStr);
   }
+
   // gets user input, as a string, with only letters, forced cases,
   private static String GetConsoleInput(Boolean firstName, Scanner userTerminal) {
     String input;
@@ -70,7 +72,7 @@ class DJName {
       } else {
         System.out.printf("What is your last name?\n");
       }
-      //check scanner for inout & get if found, else try again
+      //check scanner for input & get if found, else try again
       if (userTerminal.hasNextLine()) {
         input = userTerminal.nextLine();
       } else {
@@ -88,6 +90,7 @@ class DJName {
       return input;
     }
   }
+
   // cuts the string into the parts as outlined in instruction set
   private static String TruncateString(String input, Boolean firstName) {
     // auto return input if length is 1
