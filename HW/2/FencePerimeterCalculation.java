@@ -18,6 +18,15 @@ main function
   width = get input
   print circ is 2 * π * r
   print per is len * width
+get double input
+  Double input
+  bool inputFlag
+  wile not inputFlag
+    check for double
+      get double
+    or
+      yell at user
+    return double
 */
 import java.util.Scanner;
 
