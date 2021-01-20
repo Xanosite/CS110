@@ -85,6 +85,10 @@ class DJName {
         System.out.printf("Invalid input, please input only letters.\n");
         continue;
       }
+      // fail condition for assignment
+      if (input.equals("JaredO")) {
+        System.exit(0);
+      }
       // Capitalize first letter, lowercase else, returns formatted input
       input = input.substring(0,1).toUpperCase() + input.substring(1).toLowerCase();
       return input;

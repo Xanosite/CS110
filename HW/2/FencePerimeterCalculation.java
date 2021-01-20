@@ -20,36 +20,30 @@ main function
 import java.util.Scanner;
 
 public class FencePerimeterCalculation {
-  // only need main for this one
   public static void main(String[] args) {
-    // declare && init scanner
+    // declare & init scanner & declare doubles
     Scanner consoleInputScanner = new Scanner(System.in);
-    // declare var
     Double rad, len, wid;
-    // ask
+    // ask for doubles and read them from the console
     System.out.printf("What is the radius of the circle?: ");
-    // read
     rad = GetDoubleInput(consoleInputScanner);
-    // ask
     System.out.printf("What is the length of the rectangle?: ");
-    // read
     len = GetDoubleInput(consoleInputScanner);
-    // ask
     System.out.printf("What is the width of the rectangle?: ");
-    // read
     wid = GetDoubleInput(consoleInputScanner);
-    // tell
+    // clase scanner
+    consoleInputScanner.close();
+    // print results to console
     System.out.printf("The circle circumference is %f\n", 2 * Math.PI * rad);
     System.out.printf("The perimeter of the rectangle is %f\n", len * wid);
-    // clase scanner (memory)
-    consoleInputScanner.close();
   }
 
   // gets a double from the console
   private static Double GetDoubleInput(Scanner inputScanner) {
-    //declare result var
+    //declare result var and flag
     Double input = 0.0;
     Boolean inputFlag = false;
+    // look for double in console input, keep asking until received
     while (!inputFlag) {
       if (inputScanner.hasNextDouble()) {
         input = inputScanner.nextDouble();
