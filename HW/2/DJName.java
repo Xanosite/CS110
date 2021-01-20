@@ -2,119 +2,96 @@
 // Date: 13-JAN-2021
 // Takes two string inputs, returns 1/2 eahc + JayJay
 
-// Pseudo
-/*
-import scanner lib
+/* Psuedocode
+import scanner
+// main class & funct
+class
+  main
+    initialize console scanner
+    declare firstNameStr, lastNameStr, and outputNameStr
+    firstNameStr && lastNameStr = TruncateString( getConsoleInput(firstNameFlag, userTerminal),  firstNameFlag)
+    close scanner
+    if both first and lastname are one letter, format as initials
+    outputNameStr = first + last name
+    print result
 
-main function
-  get user inputs
-  if firstname && lastname lengths are both 1
-    call initials handler function with decimal true
-  else
-    call truncater for any lengths above 0
-    call initials handler with decimal false for lengths of 0
-  combine strings & JayJay
-  print result
-
-input funtion (bool firstname)
-  vars: string (input)
-  while true
-    if firstname == true
-      gask for first name
-    else
-      ask for last name
-    prompt input
-    if input is not a-z or A-Z
-      yell at user
-    else
+  GetConsoleInput
+    String input
+    Boolean cleanInputFlag
+    loop until correct
+      ask for first / last name as relevant
+      get console input
+      verify that input is letters, else try again
+      Capitalize first letter, lowercase else
       return input
 
-truncate string function (string: inputString, bool: firstName)
-  vars: stringlen
-  stringlen = inputString.length
-  if firstName == true
-    if stringlen % 2 !=0
-      stringlen --
-    start at position 0
-    stop at 1/2 stringlen
-  else
-    if stringlen % 2 != 0
-      stringlen--
-    start at 1/2 stringlen - 1
-    start = stringlen
-  return string.sub(start, stop)
-
-  initials handler function (strng: input, bool decimal, firstname)
-  if decimal
-    capitalize letter, add a period
-  else if firstName
-    capitalise letter
-  return new str
+  TruncateString
+    auto return input if length is 1
+    integers: stringLen = input.length(), start, stop;
+    set start stop for fist half of first name, ignore middle if odd
+    set start stop for 2nd half of last name, get middle & ignore last if odd
+    return desired string
 */
 
+// import area
 import java.util.Scanner;
-
+// main class & funct
 class DJName {
   public static void main(String[] args) {
-    //initialize Scanner
-    Scanner userKeyboard = new Scanner(System.in);
-    // declare and initialize variables
-    String firstNameStr = GetInput(true, userKeyboard), lastNameStr = GetInput(false, userKeyboard);
-    // deal with single letter entry
+    //declare + initialize scanner of console & declare variables
+    Scanner userTerminal = new Scanner(System.in);
+    String firstNameStr, lastNameStr, outputNameStr;
+    // get & truncate the input from console, nested functions
+    firstNameStr = TruncateString(GetConsoleInput(true, userTerminal), true);
+    lastNameStr = TruncateString(GetConsoleInput(false, userTerminal), false);
+    // close scanner
+    userTerminal.close();
+    // if both names are single letters after truncation, use them as initials
+    // - add decimals and spaces to use as decimals
     if (firstNameStr.length() == 1 && lastNameStr.length() == 1) {
-      firstNameStr = InitialsHandler(firstNameStr, true, true);
-      lastNameStr = InitialsHandler(lastNameStr, true, false);
-    } else if (firstNameStr.length() == 1) {
-      firstNameStr = InitialsHandler(firstNameStr, false, true);
-      lastNameStr = TruncateString(lastNameStr, false);
-    } else if (lastNameStr.length() == 1) {
-      lastNameStr = InitialsHandler(lastNameStr, false, false);
-      firstNameStr = TruncateString(firstNameStr, true);
+      outputNameStr = firstNameStr + ". " + lastNameStr + ". ";
     } else {
-      firstNameStr = TruncateString(firstNameStr, true);
-      lastNameStr = TruncateString(lastNameStr, false);
+      outputNameStr = firstNameStr + lastNameStr;
     }
     // print result
-    System.out.printf("Your DJ name is: %s%sJayJay", firstNameStr, lastNameStr);
-    // close scanner
-    userKeyboard.close();
+    System.out.printf("Your DJ name is: %sJayJay", outputNameStr);
   }
-  // gets user input, as a string, with only letters, forced cases
-  private static String GetInput(Boolean firstName, Scanner userKeyboard) {
+  // gets user input, as a string, with only letters, forced cases,
+  private static String GetConsoleInput(Boolean firstName, Scanner userTerminal) {
     String input;
-    Boolean cleanInput;
-    int i;
-
+    Boolean cleanInputFlag;
     // keep asking until good input is received
     while (true) {
       input = "";
-      cleanInput = true;
+      cleanInputFlag = true;
       // ask first or last name as relevant
       if (firstName) {
         System.out.printf("What is your first name?\n");
       } else {
         System.out.printf("What is your last name?\n");
       }
-      // get input
-      input = userKeyboard.nextLine();
-      // check if inout is letters
-      for (i = 0; i < input.length(); i++) {
-        if (!Character.isLetter(input.charAt(i))) {
-          cleanInput = false;
-        }
+      //check scanner for inout & get if found, else try again
+      if (userTerminal.hasNextLine()) {
+        input = userTerminal.nextLine();
+      } else {
+        continue;
       }
-      if (!cleanInput) {
+      // check if input is letters, yell at user and try again if not
+      // input passed hasNextLine() so I do not think it can be length 0
+      cleanInputFlag = input.matches("[a-zA-Z]+");
+      if (!cleanInputFlag) {
         System.out.printf("Invalid input, please input only letters.\n");
         continue;
       }
-      // format capitalization values
+      // Capitalize first letter, lowercase else, returns formatted input
       input = input.substring(0,1).toUpperCase() + input.substring(1).toLowerCase();
-      // close scanner
       return input;
     }
   }
   // cuts the string into the parts as outlined in instruction set
   private static String TruncateString(String input, Boolean firstName) {
+    // auto return input if length is 1
+    if (input.length() == 1) { return input; }
     int stringLen = input.length(), start, stop;
     // set start stop for fist half of first name, ignore middle if odd
     // by reducing when it is odd, half is returned if even, and left of half is returned if odd
@@ -135,16 +112,5 @@ class DJName {
     }
     // return desired string
     return input.substring(start, stop);
-  }
-  // handles entries with length of 1, makes uppercase if firstName, adds decimals and Spaces if both are single letter
-  private static String InitialsHandler (String input, Boolean decimal, Boolean firstName) {
-    String ret = input;
-    if (decimal) {
-      input.toUpperCase();
-      ret = input + ". ";
-    } else if (firstName) {
-      input.toUpperCase();
-    }
-    return ret;
   }
 }
