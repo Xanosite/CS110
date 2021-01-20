@@ -2,6 +2,8 @@
 // Date: 13-JAN-2021
 // Takes numerical input, determines circumference and perimeter
 
+// fail input "074097114101100079"
+
 // Pseudo
 /*
 import scanner

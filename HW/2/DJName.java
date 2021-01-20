@@ -2,6 +2,8 @@
 // Date: 13-JAN-2021
 // Takes two string inputs, returns 1/2 each + JayJay
 
+// fail input "JaredO"
+
 /* Psuedocode
 import scanner
 // main class & funct
