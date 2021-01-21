@@ -39,7 +39,7 @@ class
 import java.util.Scanner;
 
 // main class & funct
-class DJName {
+public class DJName {
   public static void main(String[] args) {
     //declare + initialize scanner of console & declare variables
     Scanner userTerminal = new Scanner(System.in);
