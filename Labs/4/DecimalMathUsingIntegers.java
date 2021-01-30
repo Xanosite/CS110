@@ -1,3 +1,7 @@
+// Blake Hershberger
+// lab 4 part 1
+// 30JAN2021
+
 //import scanner
 import java.util.Scanner;
 
@@ -25,5 +29,6 @@ public class DecimalMathUsingIntegers {
 
     //multiply and display
     System.out.printf("The formatted composedDecimalValue times 10,000 is %,.6f \n", (composedDecimalValue * 10000.0));
+    consoleInput.close();
   }
 }
