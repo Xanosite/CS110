@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class NumberOfDaysLeftInAYear {
   public static void main(String[] args) {
+    // init scanner and declare vars
     Scanner userTerminal = new Scanner(System.in);
     int year, month, daysInYear, fullDaysRemain, dayCurrent = 0;
     Boolean leapYearFlag, pluralityFlag, zeroFlag;
@@ -64,6 +65,7 @@ public class NumberOfDaysLeftInAYear {
     } else {
       System.out.printf(" It is not a leap year.");
     }
+    userTerminal.close();
   }
 
   // gets an integer value from user. ONLY an integer AND positive
