@@ -12,15 +12,14 @@ import java.util.Scanner;
 
 public class NumberDaysInAYearSoFar {
   public static void main(String[] args) {
+    // declare scanner and vars
     Scanner userTerminal = new Scanner(System.in);
-    int year, month, daysInYear, fullDaysExpired, dayCurrent = 0;
+    int year, month, fullDaysExpired, dayCurrent = 0;
     Boolean leapYearFlag, pluralityFlag, zeroFlag;
     // get the year and check if it's a leap year
     System.out.printf("What year is it? (integer value)\n");
     year = GetConsoleInputInt(userTerminal, false);
     leapYearFlag = IsLeapYear(year);
-    // set days in year based on leap bool
-    daysInYear = leapYearFlag ? 366 : 365;
     // get month
     System.out.printf("What month is it? (full month name only)\n");
     month = GetConsoleInputInt(userTerminal, true);
@@ -64,6 +63,7 @@ public class NumberDaysInAYearSoFar {
     } else {
       System.out.printf(" It is not a leap year.");
     }
+    userTerminal.close();
   }
 
   // gets an integer value from user. ONLY an integer AND positive
