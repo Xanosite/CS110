@@ -2,6 +2,8 @@
 // 02-FEB-2021
 // Does what the name implies
 
+// Code break: "JaredO" as month
+
 // PSEUDO
 // Get day / month / year from user
 // Check if year is leap year or not
@@ -109,6 +111,8 @@ public class NumberOfDaysLeftInAYear {
     int i, returnInt = -1;
     String tString = month;
     String[] months = {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
+    //"FAILURE case"
+    if (month.equals("JaredO")) { System.exit(0); }
     tString = month.toLowerCase();
     // checks user string for month value, assigns index loc to return
     for(i = 0; i < 12; i++) {
