@@ -1,3 +1,6 @@
+// Blake Hershberger
+// 14-FEB-2021
+
 // import statements
 import java.util.Scanner;
 
