@@ -1,0 +1,5 @@
+Blake Hershberger
+9-FEB-2020
+Final Project Plan
+
+The final project intended is a one player vs. computer tic-tac-toe game in console. To include simplistic algorithims for deciding computer moves, recording of player moves, and checking for win states.
