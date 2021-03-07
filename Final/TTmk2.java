@@ -32,6 +32,7 @@ class PrintIt {
     Thread.sleep(500);
   }
 }
+
 // class to do grid related things
 class ttGrid {
   // data holder
