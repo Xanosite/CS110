@@ -139,8 +139,8 @@ class ttGrid {
 
 }
 
-// driver class
-public class TTmk2 {
+// move all the other methods here for...reasons.
+class haveNoStatic {
 
   // handles the computers turn
   private static int computerTurn(ttGrid grid) {
@@ -318,7 +318,7 @@ public class TTmk2 {
     System.out.println(numToLetter(grid.checkWin()) + " has won the game.");
   }
 
-  public static void main(String[] args) throws IOException, InterruptedException {
+  public static void runGame() throws IOException, InterruptedException {
     // get the things ready
     Scanner consoleInput = new Scanner (System.in);
     ttGrid grid = new ttGrid();
@@ -335,5 +335,12 @@ public class TTmk2 {
     }
     showWinner(grid);
     consoleInput.close();
+  }
+}
+
+// driver class
+public class TTmk2 {
+  public static void main(String[] Args) throws IOException, InterruptedException{
+    haveNoStatic.runGame();
   }
 }
