@@ -9,6 +9,48 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+// original psuedocode
+// main function()
+//  define scanner
+//  game loop (endless)
+//    calls game engine
+
+// game engine()
+//  generate playGrid
+//  generate random number for turn order (1 or 0)
+//  play intro
+//  game loop
+//    call turn caller(grid, turn)
+//    if winstate checker then break
+
+// turn caller (turn, grid)
+//  if turn int is 0, call computer turn and set to  1
+//  else call player turn and set to 0
+
+// human turn function(grid)
+//  gets user input for play space
+//  if valid, allow
+
+// computer turn(grid)
+//  call row2 checker comp sign
+//    if row2 @ comp sign, finish row
+//  else call row2 player sign
+//    if row2 @ player sign, block row
+//  else if center not taken, take
+//  else if not all corners taken, pick corners at random
+//  else pick random
+
+// row2 checker(grid, sign)
+//  check for 2 in a row of type given, diag, then horiz, then vert
+
+// win state checker(grid)
+//  looks for three in a row, either
+
+// printGrid
+//   prints grid
+
+
+
 // for any static printing needs
 class PrintIt {
   public static void intro() throws IOException, InterruptedException {
